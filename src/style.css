@@ -1,4 +1,11 @@
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('./quartz-regular.ttf');
+}
+
 .hello {
     color: red;
+    font-family: 'MyFont';
     background: url(./icon.png);
   }
