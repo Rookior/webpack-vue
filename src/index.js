@@ -30,7 +30,7 @@
 
 import Vue from 'vue'
 import App from './App.vue'
-
+import {router} from './router/index';
 //没有根节点app在默认html时采用这种挂载节点和方法
 // const root=document.createElement("div")
 // document.body.appendChild(root)
@@ -49,6 +49,7 @@ import App from './App.vue'
 
 new Vue({
   el:'#app',
+  router: router,
   render: h => h(App)
 })
 

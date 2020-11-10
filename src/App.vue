@@ -1,6 +1,7 @@
 <template>
    <div id="app">
-       hello world
+       <p>hello world</p>
+       <router-view></router-view>
    </div>
 </template>
 
@@ -10,6 +11,11 @@ export default {
 }
 </script>
 
-<style scoped>
-   
+<style lang="scss" scoped>
+   #app{
+       p{
+           font-size: 30px;
+       }
+       background: #ccc;
+   }
 </style>
