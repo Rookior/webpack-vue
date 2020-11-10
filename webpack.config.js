@@ -1,6 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
+
 const webpack = require('webpack');
 module.exports = {
   entry: {
@@ -80,10 +83,12 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'webpack基础配置'
+      title: 'webpack基础配置',
+      template: './index.html',  //读取模板的入口文件
     }),
     // new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new VueLoaderPlugin()
   ],
   output: {
     filename: '[name].bundle.js',
