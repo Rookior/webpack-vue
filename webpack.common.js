@@ -6,10 +6,10 @@ module.exports = {
   entry: {
     app: './src/index.js',
   },
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  }, 
+  // devServer: {
+  //   contentBase: './dist',
+  //   hot: true
+  // },  ==>开发需要所以放到webpack.dev.js
   module: {
     rules: [
       {
@@ -73,8 +73,7 @@ module.exports = {
         ],
         include: path.resolve(__dirname, 'src'),
         exclude: /node_modules/
-      },
-      { test: /\.vue$/, use: 'vue-loader' }
+      }
     ]
   },
   plugins: [
@@ -82,12 +81,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'webpack基础配置'
     }),
-    // new webpack.NamedModulesPlugin(),
+    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ],
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/' //->影响热更新
+    publicPath: process.env.NODE_ENV === 'production' ? './' : '/' //->影响热更新
   }
 };
